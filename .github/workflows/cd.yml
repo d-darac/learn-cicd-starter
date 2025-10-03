@@ -35,3 +35,5 @@ jobs:
       - name: Build Docker Image and Push to GCP
         run: gcloud builds submit --tag europe-west2-docker.pkg.dev/glossy-observer-474014-j7/notely-ar-repo/ddarac/notely:latest
 
+      - name: Deploy to Cloud Run
+        run: gcloud run deploy notely --image europe-west2-docker.pkg.dev/glossy-observer-474014-j7/notely-ar-repo/ddarac/notely@sha256:207f6298de5114eb61082bf041f9a92d0ea1308360c7299b1294f86154c46afb --region us-central1 --allow-unauthenticated --project glossy-observer-474014-j7 --max-instances=4
